@@ -1,26 +1,34 @@
 let playerScore = 0;
 let computerScore = 0;
 
-// Choosing Random Array for computerSelection
+// Choosing computerSelection
 function computerPlay() {
-    let choices = ['rock', 'paper', 'scissors']
+    let choices = ['Rock', 'Paper', 'Scissors']
     return choices[Math.floor(Math.random() * choices.length)]
 }
 
+// Capitalizing First Letter
+function capitalizeFirstLetter(string) {
+    return string[0].toUpperCase() + string.slice(1);
+}
+
+// Choosing playerSelection
+function playerChoice() {
+    let playerInput = prompt('Rock, Paper, or Scissors?');
+    let lowerCaseChoice = playerInput.toLowerCase();
+    let lowerCaseTrim = lowerCaseChoice.trim();
+    return capitalizeFirstLetter(lowerCaseTrim);
+}
 
 // Plays a single round of Rock Paper Scissors
 function playRound() {
     let result = '';
-
-    let playerChoice = prompt('Rock, Paper, or Scissors?');
-    let lowerCaseChoice = playerChoice.toLowerCase();
-    let playerSelection = lowerCaseChoice.trim();
-
     let computerSelection = computerPlay();
+    let playerSelection = playerChoice();
 
-    if ((playerSelection == 'rock' && computerSelection == 'scissors' ||
-        playerSelection == 'paper' && computerSelection == 'rock' ||
-        playerSelection == 'scissors' && computerSelection == 'paper')) {
+    if ((playerSelection == 'Rock' && computerSelection == 'Scissors' ||
+        playerSelection == 'Paper' && computerSelection == 'Rock' ||
+        playerSelection == 'Scissors' && computerSelection == 'Paper')) {
 
         playerScore++
 
@@ -31,11 +39,11 @@ function playRound() {
         ${result}`);
 
     } else if (playerSelection == computerSelection) {
+
         result = `This round is a tie! You both chose ${playerSelection}. The score is still ${playerScore}-${computerScore}`;
 
         console.log(`You chose ${playerSelection}.
-
-        The computer chose ${computerSelection}.
+         The computer chose ${computerSelection}.
         ${result}`);
 
     } else {
@@ -51,6 +59,7 @@ function playRound() {
     }
 }
 
+// Best of 5 because idk how to make a loop yet
 function game() {
     playRound()
     playRound()
