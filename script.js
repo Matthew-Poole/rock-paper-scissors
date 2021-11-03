@@ -32,7 +32,7 @@ while (playerScore < 5 && computerScore < 5) {
     }
 
 }
-console.log(playerScore && computerScore > 5);
+
 // Plays a single round of Rock Paper Scissors
 function playRound() {
     let result = '';
