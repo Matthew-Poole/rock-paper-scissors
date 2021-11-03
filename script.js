@@ -1,5 +1,4 @@
-let playerScore = 0;
-let computerScore = 0;
+
 
 // Choosing computerSelection
 function computerPlay() {
@@ -20,6 +19,20 @@ function playerChoice() {
     return capitalizeFirstLetter(lowerCaseTrim);
 }
 
+let playerScore = 0;
+let computerScore = 0;
+while (playerScore < 5 && computerScore < 5) {
+    playRound();
+    if (playerScore == 5 && computerScore < 5) {
+        console.log(`Congrats, you won! ${playerScore}-${computerScore}`);
+        break;
+    } else if (computerScore == 5 && playerScore < 5) {
+        console.log(`Bummer, you lost. ${playerScore}-${computerScore} Try again.`);
+        break;
+    }
+
+}
+console.log(playerScore && computerScore > 5);
 // Plays a single round of Rock Paper Scissors
 function playRound() {
     let result = '';
@@ -60,20 +73,26 @@ function playRound() {
 }
 
 // Best of 5 because idk how to make a loop yet
-function game() {
-    playRound()
-    playRound()
-    playRound()
-    playRound()
-    playRound()
-    if (computerScore > playerScore) {
-        console.log(`Bummer, you lost. ${playerScore}-${computerScore} Try again.`);
-    } else if (playerScore > computerScore) {
-        console.log(`Congrats, you won! ${playerScore}-${computerScore}`);
-    } else {
-        console.log(`It was a tie! ${playerScore}-${computerScore} Try again`)
-    }
-    return playerScore, computerScore
-}
+// function game() {
+//     playRound()
+//     playRound()
+//     playRound()
+//     playRound()
+//     playRound()
+//     if (computerScore > playerScore) {
+//         console.log(`Bummer, you lost. ${playerScore}-${computerScore} Try again.`);
+//     } else if (playerScore > computerScore) {
+//         console.log(`Congrats, you won! ${playerScore}-${computerScore}`);
+//     } else {
+//         console.log(`It was a tie! ${playerScore}-${computerScore} Try again`)
+//     }
+//     return playerScore, computerScore
+// }
 
-game();
+
+
+
+
+
+
+
